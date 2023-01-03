@@ -16,6 +16,8 @@ app.use(express.static("public"));
 app.set("view engine", 'ejs');
 
 mongoose.connect("mongodb+srv://admin-yanyin:P6aV0GyqyW6PG4Eb@cluster0.cao0kze.mongodb.net/todolistDB")
+// mongoose.connect("mongodb://127.0.0.1:27017/todolistDB")
+
 
 const itemSchema = new mongoose.Schema({
   name: String
@@ -73,6 +75,7 @@ app.get("/", function(req, res) {
 
 
 app.post("/", function(req, res) {
+  console.log(req.body);
   const itemName = req.body.courseUrls;
   const listName = req.body.list;
 
